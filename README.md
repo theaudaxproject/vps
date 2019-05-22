@@ -16,7 +16,7 @@ Some notes and requirements:
 * Currently only Ubuntu 16.04 Linux is supported
 * This script needs to run as root or with sudo, the masternodes will and should not!
 * You may want to do the "Configure AUDAX Wallet" section first as it'll simplify masternode setup.
-* If you're transferring collateral from local wallet to the same wallet and are setting up multiple masternodes, use the "Add recipient" button to transfer the AUDAX. It's faster and also makes sure the 150000audax transfers stay in one piece.
+* If you're transferring collateral from local wallet to the same wallet and are setting up multiple masternodes, use the "Add recipient" button to transfer the AUDAX. It's faster and also makes sure the 150000 ADX transfers stay in one piece.
 
 This project was forked from https://github.com/phoreproject/vps (and comes with their screenshots) @marsmensch (Florian) is the primary author behind this VPS installation script for masternodes. If you would like to donate to him, you can use the BTC address below
 
