@@ -1,6 +1,6 @@
 # AUDAX Masternode VPS Installation
 
-This masternode installation script vastly simplifies the setup of a AUDAX masternode running on a virtual private server (VPS), and it also adds a number of other powerful features, including:
+This masternode installation script vastly simplifies the setup of an AUDAX masternode running on a virtual private server (VPS), and it also adds a number of other powerful features, including:
 
 * IPv6 Support
 * Installs 1-100 (or more!) AUDAX masternodes in parallel on one VPS, with individual audax.conf and data directories
@@ -16,7 +16,7 @@ Some notes and requirements:
 * Currently only Ubuntu 16.04 Linux is supported
 * This script needs to run as root or with sudo, the masternodes will and should not!
 * You may want to do the "Configure AUDAX Wallet" section first as it'll simplify masternode setup.
-* If you're transferring collateral from local wallet to the same wallet and are setting up multiple masternodes, use the "Add recipient" button to transfer the AUDAX. It's faster and also makes sure the 150000 ADX transfers stay in one piece.
+* If you're transferring collateral from local wallet to the same wallet and are setting up multiple masternodes, use the "Add recipient" button to transfer the AUDAX. It's faster and also makes sure the 150000 AUDAX transfers stay in one piece.
 
 This project was forked from https://github.com/phoreproject/vps (and comes with their screenshots) @marsmensch (Florian) is the primary author behind this VPS installation script for masternodes. If you would like to donate to him, you can use the BTC address below
 
@@ -74,8 +74,6 @@ Choose how many instances you want and click "Deploy Now".
 If you are running your wallet from Windows, install PuTTY while the server is being set up. You can download PuTTY from here: http://www.putty.org/. Skip this step if you are using a Mac--you will use the built in Terminal application instead.
 
 Once PuTTY is installed, return to the Vultr dashboard to get the login details by clicking on the ... to the right of your server, and select Server Details.
-
-Windows 10 users can access their VPS through the command line. Find out how to do that here: https://www.audaxlabs.org/docs/ssh-in-windows-10-no-more-putty
 
 ## Accessing your VPS via SSH
 
@@ -147,7 +145,7 @@ git clone https://github.com/theaudaxproject/vps.git && cd vps && ./install.sh -
 Replace every `**PRIVATE KEY 01**` etc entry by your private key. So
 
 ```bash
-git clone https://github.com/theaudaxproject/vps.git && cd vps && ./install.sh -p audax -c 3 --key1 7QgVciKfm43fdRxQFLKYn76f3d78phUWRWajUfWGMMHUv5SuUt5 --key2 7RNz4BvxsadGYedHr5KTZ9Wha45gbEbmg9eaXuwXjwuNJZBPsJC --key3 7Qy9bPyZExu78fd5eowoGKxpu7ExvKzsFxjeaaNEXBPRsoYukN
+git clone https://github.com/theaudaxproject/vps.git && cd vps && ./install.sh -p audax -c 3 --key1 2QgVciKfm43fdRxQFLKYn76f3d78phUWRWajUfWGMMHUv5SuUt5 --key2 2RNz4BvxsadGYedHr5KTZ9Wha45gbEbmg9eaXuwXjwuNJZBPsJC --key3 2Qy9bPyZExu78fd5eowoGKxpu7ExvKzsFxjeaaNEXBPRsoYukN
 ```
 
 Using this command, you can skip the step for "Configure masternode configuration files", because the command above adds the masternode private keys to the masternode configuration files.
@@ -209,9 +207,9 @@ Click the Request payment button, and copy the address.
 
 <img src="docs/images/masternode_vps/request.png" alt="making new address" class="inline"/>
 
-Now go to the Send tab, paste the copied address, and send *exactly* 150000 ADX to it in a single transaction. Wait for it to confirm on the blockchain. This is the collateral transaction that will be locked and paired with your new masternode. If you are setting up more than one masternode at one time, repeat this process for each one. Or better yet, use the Add Recipients button to send everything at once.
+Now go to the Send tab, paste the copied address, and send *exactly* 150000 AUDAX to it in a single transaction. Wait for it to confirm on the blockchain. This is the collateral transaction that will be locked and paired with your new masternode. If you are setting up more than one masternode at one time, repeat this process for each one. Or better yet, use the Add Recipients button to send everything at once.
 
-<img src="docs/images/masternode_vps/send.png" alt="sending 10kPHR" class="inline"/>
+<img src="docs/images/masternode_vps/send.png" alt="sending Sending 150kAUDAX" class="inline"/>
 
 ### Step 2 - Generate Masternode Private Key
 Go to the **[Tools > Debug Console]** and enter these commands below:
@@ -239,7 +237,7 @@ masternode outputs
 
 The long string of characters is the *Transaction ID* for your masternode collateral transaction. The number after the long string is the *Index*. Copy and paste these into the text file next to the private key you generated in Step 2.
 
-If you have multiple masternodes in the same wallet and have done the 150000 ADX transactions for each of them, masternode outputs will display transaction IDs and indexes for each one. You can choose which private key to go with each transaction ID and index, as long as they are all different, and you make sure the corresponding lines in masternode.conf and the VPS audax configuration files match (see below).
+If you have multiple masternodes in the same wallet and have done the 150000 AUDAX transactions for each of them, masternode outputs will display transaction IDs and indexes for each one. You can choose which private key to go with each transaction ID and index, as long as they are all different, and you make sure the corresponding lines in masternode.conf and the VPS audax configuration files match (see below).
 
 ## End of installations
 When the script finishes, it will look similar to this:
@@ -297,7 +295,7 @@ Add the MN conf line, like the example below to the masternode.conf file. Save i
 
 example.
 ```
-AUDAX-MN-1 [2001:19f0:5001:ca6:2085::1]:11771 88xrxxxxxxxxxxxxxxxxxxxxxxx7K 6b4c9xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx7ee23 0
+AUDAX-MN-1 [2001:19f0:5001:ca6:2085::1]:18200 88xrxxxxxxxxxxxxxxxxxxxxxxx7K 6b4c9xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx7ee23 0
 ```
 
 The image below shows another example using an IPv4 IP address. If you followed this guide you are probably using an IPv6 address that looks like the line above.
@@ -322,27 +320,16 @@ The output will look like this:
 ```
 {
   "version": 150200,
-  "protocolversion": 71029,
+  "protocolversion": 70003,
   "walletversion": 61000,
   "balance": 0.00000000,
-  "zerocoinbalance": 0.00000000,
   "blocks": 47508,
   "timeoffset": 0,
   "connections": 4,
   "proxy": "",
   "difficulty": 24703.78796245168,
   "testnet": false,
-  "moneysupply": 8994482.77956084,
-  "zaudaxsupply": {
-    "1": 0.00000000,
-    "5": 0.00000000,
-    "10": 0.00000000,
-    "50": 0.00000000,
-    "100": 0.00000000,
-    "500": 0.00000000,
-    "1000": 0.00000000,
-    "5000": 0.00000000,
-    "total": 0.00000000
+  "moneysupply": 8994482.77956084
   },
   "keypoololdest": 1537411480,
   "keypoolsize": 1000,
