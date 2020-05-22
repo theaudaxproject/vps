@@ -160,6 +160,15 @@ rm -rf /root/
 git clone https://github.com/theaudaxproject/vps.git && cd vps && ./install.sh -p audax -u
 ```
 
+```bash
+systemctl daemon-reload
+```
+
+Then restart each masternode, e.g.:
+```bash
+systemctl restart audax_n1
+```
+
 The project is configured to use the latest official release of the AUDAX masternode code, and we will update this project each time a new release is issued, but without downloading the latest version of this project and using the -u parameter, the script will not update an existing AUDAX node that is already installed.
 
 ### Adding Masternodes on an existing installation
